@@ -1,17 +1,17 @@
 <script>
-import ProjectsCard from './ProjectsCard.vue';
+import ProjectsList from './ProjectsList.vue';
 
 export default {
     name: "AppMain",
     components: {
-        ProjectsCard,
+        ProjectsList,
     },
 };
 </script>
 
 <template>
     <main>
-        <ProjectsCard/>
+        <ProjectsList/>
     </main>
 </template>
 
