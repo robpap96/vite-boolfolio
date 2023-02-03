@@ -1,13 +1,25 @@
-<script setup>
+<script>
+import AppHeader from './components/AppHeader.vue'
+import AppMain from './components/AppMain.vue'
+import AppFooter from './components/AppFooter.vue'
 
-import AppTitle from './components/AppTitle.vue'
+export default {
+    components: {
+        AppHeader,
+        AppMain,
+        AppFooter,
+    },
+};
 </script>
 
 <template>
-  <AppTitle msg="La mia prima App Vue" />
-
+    <div>
+        <AppHeader/>
+        <AppMain/>
+        <AppFooter/>
+    </div>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import "./style/global.scss";
 </style>
