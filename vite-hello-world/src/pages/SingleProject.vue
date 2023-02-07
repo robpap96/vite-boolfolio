@@ -8,20 +8,40 @@
 
 <script>
 import axios from 'axios';
+import {store} from '../store';
 
 export default {
     name: 'SingleProject',
     data () {
         return {
+            store,
             project: null,
         };
     },
     created() {
-        axios.get(`http://127.0.0.1:8000/api/projects/${this.$route.params.slug}`)
-        .then((response) => {
-            this.project = response.data;
-        });
-    }
+        this.getProject();
+        
+        this.$watch(
+            () => this.$route.params,
+            (toParams, previousParams) => {
+                this.getProject();
+            } 
+        );
+
+    },
+    methods: {
+        getProject() {
+            axios.get(`${this.store.api_url}/projects/${this.$route.params.slug}`)
+            .then((response) => {
+                this.project = response.data;
+            })
+            .catch((err) => {
+                console.log(err);
+                this.$router.push({ name: "page-404" })
+            });
+        },
+    },
+
 };
 </script>
 

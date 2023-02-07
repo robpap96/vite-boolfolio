@@ -1,5 +1,6 @@
 <script>
 import axios from "axios";
+import {store} from "../store";
 import ProjectsCard from "./ProjectsCard.vue";
 
 export default {
@@ -9,11 +10,12 @@ export default {
     },
     data() {
         return{
+            store,
             projects: [],
         };
     },
     created() {
-        axios.get('http://127.0.0.1:8000/api/projects')
+        axios.get(`${this.store.api_url}/projects`)
         .then((response) => {
             this.projects = response.data;
         });
