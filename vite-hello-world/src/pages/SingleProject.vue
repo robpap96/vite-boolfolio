@@ -48,6 +48,7 @@ export default {
         };
     },
     created() {
+
         this.getProject();
 
         this.$watch(
@@ -60,7 +61,7 @@ export default {
     },
     methods: {
         getProject() {
-            axios.get(`${this.store.api_url}/projects/${this.$route.params.slug}`)
+            axios.get(`http://localhost:8000/api/projects/${this.$route.params.slug}`)
             .then((response) => {
                 this.project = response.data;
             })
@@ -70,11 +71,11 @@ export default {
             });
         },
         addComment() {
-            axios.post(`${this.store.api_url}/comments/${this.project.id}`,{          
+            axios.post(`http://localhost:8000/api/comments/${this.project.id}`,{          
                 name: this.formData.name,
                 content: this.formData.content,
             }).then((res) => {
-                
+
             }).catch((err) =>{})
         },
     },

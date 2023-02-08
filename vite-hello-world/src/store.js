@@ -1,5 +1,5 @@
-import {reactive} from "vue";
+import { reactive } from "vue";
 
 export const store = reactive({
-    api_url: import.meta.env.VITE_BACKEND_URL,
-})
+  api_url: import.meta.env.VITE_BACKEND_URL,
+});

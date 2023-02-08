@@ -14,13 +14,18 @@ export default {
             projects: [],
         };
     },
+    mounted() {
+       
+
+    },
     created() {
-        axios.get(`${this.store.api_url}/projects`)
+        axios.get(`http://localhost:8000/api/projects`)
         .then((response) => {
             this.projects = response.data;
         });
     },
 };
+
 </script>
 <template>
     <section>
